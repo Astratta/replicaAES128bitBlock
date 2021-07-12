@@ -71,7 +71,7 @@ class KeySchedule:
 		keyRound = b''
 		for i in range(4):
 			for j in range(4):
-				keyRound[4 * i + j] = KR[i][j]
+				keyRound += bytes([KR[i][j]])
 		return keyRound
 
 
