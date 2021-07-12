@@ -29,8 +29,6 @@ while True:
 
 for byte in range(len(dadosCompleto)):
 	dados += bytes([dadosCompleto[byte]])
-	#print(type(dadosCompleto))
-	#print(type(dados))
 	if len(dados) == 16:
 		#Adicionar chave antes do round 1
 		estado = AddRoundKey.AddKey(dados, chave)
