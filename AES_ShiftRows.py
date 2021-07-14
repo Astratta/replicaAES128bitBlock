@@ -37,5 +37,22 @@ class ShiftRow:
 				estado[i] = self.trocar_posicao(estado[i])
 		return estado
 
+	def inv_trocar_posicao(self, x):
+		aux = x[3]
+		for i in range(3, 0, -1):
+			x[i] = x[i-1]
+		x[0] = aux
+		return x
+
+	def Inv_ShiftRow_Layer(self, X):
+		for i in range(1, 4):
+			for j in range(i):
+				X[i] = self.inv_trocar_posicao(X[i])
+		estado = b''
+		for i in range(4):
+			for j in range(4):
+				estado += bytes([X[i][j]])
+		return estado
+
 
 

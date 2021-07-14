@@ -68,11 +68,25 @@ class Sbox:
         xinv = self.mult_inverse(x)
         return self.transformacao_afim(A, xinv, b)
 
+    def Inv_AES_Sbox(self, x):
+        A = int("0101001000101001100101000100101000100101100100100100100110100100", 2)
+        b = int("00000101", 2)
+        x = self.transformacao_afim(A, x, b)
+        return self.mult_inverse(x)
+
     def mostrar_Sbox(self):
         for row in range(16):
             for col in range(16):
                 x = 16 * row + col
                 hexstring = format(self.AES_Sbox(x), "02x")
+                print(hexstring, end = " ")
+            print()
+
+    def mostrar_Inv_Sbox(self):
+        for row in range(16):
+            for col in range(16):
+                x = 16 * row + col
+                hexstring = format(self.Inv_AES_Sbox(x), "02x")
                 print(hexstring, end = " ")
             print()
     
